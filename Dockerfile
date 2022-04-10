@@ -1,7 +1,12 @@
-FROM node:10
-WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-RUN npm run build
-CMD npm run start
+FROM node:14-alpine
+WORKDIR /usr/app
+
+COPY src ./src
+COPY package.json package-lock.json tsconfig.json ./
+
+RUN npm install && \
+    npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

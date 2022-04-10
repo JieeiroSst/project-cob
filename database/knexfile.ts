@@ -9,7 +9,7 @@ module.exports = {
   },
   migrations: {
     tableName: 'knex_migrations',
-    directory: 'script/migrations'
+    directory: '../script/migrations'
   },
   timezone: 'UTC'
 };
